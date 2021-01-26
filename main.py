@@ -1,3 +1,4 @@
+#Import required libs
 import json
 import requests
 import nltk
@@ -15,18 +16,19 @@ import matplotlib.pyplot as plt
 
 
 def part1():
-    st.header("Part A - The Stories API")
+    st.header("Part A - The Stories API") #Setting the header for the page
     st.write("This app uses the Top Stories API to display the most common used in the top current articles based on a specific top selected by the user. The Data is displayed as line chart and wordcloud.")
 
-    st.subheader("I - Topic Selection")
+    st.subheader("I - Topic Selection") # First subheader
 
 
-    option = st.text_input("Please enter your Name")
+    option = st.text_input("Please enter your Name") #Asking for textinput in this case Name 
+    # Selectbox for option selection 
     option_selection = st.selectbox(
         "Select a Top you Like",
         ["","arts", "automobiles","books","business","fashion","food","health","home","insider","magazine","movies","nyregion","obituaries","opinion","politics","realestate","science","sports","sundayreview","technology","theater","t-magazine","travel","upshot","us","world"]
     )
-
+    
     if option and option_selection:
         st.write("Hello " + option + " you selected " + option_selection + "!")
         api_key_dict = main_functions.read_from_file("JSON_Files/api_key.json")
